@@ -1,133 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Kartikeya Tiwari, Software Engineer specialized in Backend and Data Engineering.">
-    <title>Portfolio - Kartikeya Tiwari</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0.4in;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        h1, h2 {
-            color: #222;
-            margin-bottom: 0.3em;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            color: black;
-        }
-        .section {
-            margin-bottom: 1.5em;
-        }
-        .section-title {
-            font-weight: bold;
-            font-size: 1.2em;
-            border-bottom: 2px solid #0073e6;
-            padding-bottom: 0.2em;
-            margin-bottom: 0.8em;
-        }
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        ul li {
-            margin-bottom: 0.6em;
-        }
-        .contact-info a {
-            text-decoration: none;
-            color: #0073e6;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kartikeya Tiwari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --white:   #ffffff;
+    --off:     #f7f6f3;
+    --light:   #eeecea;
+    --border:  #dddbd7;
+    --muted:   #888580;
+    --text:    #1c1c1a;
+    --sub:     #555350;
+    --accent:  #1a3a5c;
+    --rule:    #c8c4be;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--white);
+    color: var(--text);
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  #hero {
+    padding: 140px 0 80px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 60px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .hero-role {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .hero-bio {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--sub);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 36px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 12px; flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 24px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.18s;
+    cursor: pointer;
+  }
+
+  .btn-solid {
+    background: var(--accent);
+    color: white;
+    border: 1px solid var(--accent);
+  }
+
+  .btn-solid:hover { background: #122b47; border-color: #122b47; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+
+  .btn-ghost:hover { background: var(--accent); color: white; }
+
+  .hero-meta {
+    display: flex; gap: 40px;
+    margin-top: 52px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .meta-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .meta-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--border);
+
+
+
+  }
+
+  
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 3px;
+  }
+
+  /* SKILLS */
+  .skill-row {
+    display: flex;
+    align-items: baseline;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--light);
+    gap: 24px;
+  }
+
+  .skill-row:last-child { border-bottom: none; }
+
+  .skill-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .skill-items { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .skill-pill {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--sub);
+    background: var(--off);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 3px 12px;
+  }
+
+  /* EXPERIENCE */
+  .exp-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0 40px;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--light);
+  }
+
+  .exp-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .exp-item:first-child { padding-top: 0; }
+
+  .exp-date {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    padding-top: 3px;
+    text-transform: uppercase;
+  }
+
+  .exp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .exp-company {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .exp-points { list-style: none; }
+
+  .exp-points li {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--sub);
+    line-height: 1.8;
+    padding-left: 16px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .exp-points li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--rule);
+  }
+
+  /* PROJECTS */
+  .project-item {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--light);
+  }
+
+  .project-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .project-item:first-child { padding-top: 0; }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .project-desc {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--sub);
+    line-height: 1.8;
+    max-width: 600px;
+    margin-bottom: 14px;
+  }
+
+  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--off);
+    border: 1px solid var(--border);
+    padding: 2px 10px;
+    border-radius: 2px;
+  }
+
+  /* EDUCATION */
+  .edu-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 0 40px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--light);
+    align-items: start;
+  }
+
+  .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .edu-item:first-child { padding-top: 0; }
+
+  .edu-year {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding-top: 3px;
+  }
+
+  .edu-degree {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--sub);
+    margin-bottom: 4px;
+  }
+
+  .edu-score {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* CONTACT */
+  #contact { border-bottom: none; padding-bottom: 80px; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .contact-intro {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--sub);
+    line-height: 1.8;
+  }
+
+  .contact-links { display: flex; flex-direction: column; gap: 14px; }
+
+  .contact-row { display: flex; align-items: center; gap: 14px; }
+
+  .contact-key {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    width: 72px;
+    flex-shrink: 0;
+  }
+
+  .contact-val {
+    font-size: 14px;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.15s, color 0.15s;
+    padding-bottom: 1px;
+  }
+
+  .contact-val:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* FOOTER */
+  footer { padding: 28px 0; }
+
+  .footer-inner {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 28px 32px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .exp-item, .edu-item { grid-template-columns: 1fr; gap: 4px; }
+    .exp-date, .edu-year { margin-bottom: 8px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .skill-row { flex-direction: column; gap: 10px; }
+    .skill-label { width: auto; }
+  }
+
+</style>
 </head>
 <body>
-    <header>
-        <h1>Kartikeya Tiwari</h1>
-        <div class="section contact-info">
-            <p><strong>+91 9369435012</strong> | Bangalore, Karnataka</p>
-            <p>Email: <a href="mailto:kartikeya8760@gmail.com">kartikeya8760@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/kartikeya8760/" target="_blank">linkedin.com/in/kartikeya8760</a></p>
-            <p>GitHub: <a href="https://github.com/ktiwari8760">github.com/ktiwari8760</a></p>
-            <p>Leetcode: <a href="https://leetcode.com/u/kartikeya8760/">leetcode.com/kartikeya8760/</a></p>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-name">Kartikeya Tiwari</span>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section id="hero">
+    <h1>Kartikeya Tiwari</h1>
+    <p class="hero-role">Data Engineer &nbsp;·&nbsp; Bangalore, Karnataka</p>
+    <p class="hero-bio">
+      Over 3+ years of experience in data and software engineering across fintech and healthcare. Currently at Optum building ML pipelines for unstructured document processing, previously at Paytm developing production ETL systems at scale.
+    </p>
+    <div class="hero-actions">
+      <a href="/cdn-cgi/l/email-protection#244f4556504d4f415d451c131214644349454d480a474b49" class="btn btn-solid">Get in Touch</a>
+      <a href="https://www.linkedin.com/in/kartikeya8760/" target="_blank" class="btn btn-ghost">LinkedIn</a>
+    </div>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-val">3+</div>
+        <div class="meta-label">Years Experience</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-val">8.5</div>
+        <div class="meta-label">CGPA</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-val">10+</div>
+        <div class="meta-label">Projects Built</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="section-header">
+      <h2>Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">Languages</span>
+      <div class="skill-items">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">PySpark</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">Cloud</span>
+      <div class="skill-items">
+        <span class="skill-pill">AWS S3</span>
+        <span class="skill-pill">AWS Glue</span>
+        <span class="skill-pill">AWS Lambda</span>
+        <span class="skill-pill">Azure OCR</span>
+        <span class="skill-pill">Azure Storage</span>
+        <span class="skill-pill">Databricks</span>
+        <span class="skill-pill">Pandas</span>
+        <span class="skill-pill">Kafka</span>
+        <span class="skill-pill">Google Cloud ( Pub / Sub )</span>
+        <span class="skill-pill">Cloud Storage</span>
+        <span class="skill-pill">Big Query</span>
+        <span class="skill-pill">Mongo DB</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">Frameworks</span>
+      <div class="skill-items">
+        <span class="skill-pill">Flask</span>
+        <span class="skill-pill">Django</span>
+        <span class="skill-pill">Machine Learning</span>
+        <span class="skill-pill">Langchain</span>
+        <span class="skill-pill">Langfuse</span>
+        <span class="skill-pill">Open AI</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">Tools</span>
+      <div class="skill-items">
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">GitHub</span>
+        <span class="skill-pill">Bitbucket</span>
+        <span class="skill-pill">DSA</span>
+      </div>
+    </div>
+    <div class="skill-row">
+      <span class="skill-label">Soft Skills</span>
+      <div class="skill-items">
+        <span class="skill-pill">Communication</span>
+        <span class="skill-pill">Team Work</span>
+        <span class="skill-pill">Problem Solving</span>
+        <span class="skill-pill">Time Management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section">
+    <div class="section-header">
+      <h2>Experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">May 2025 – Present</div>
+      <div>
+        <div class="exp-title">Senior Software Engineer</div>
+        <div class="exp-company">Optum &nbsp;·&nbsp; Bangalore, Karnataka</div>
+        <ul class="exp-points">
+          <li>Leading development of an end-to-end ML pipeline to parse and process large volumes of unstructured documents, enabling structured data extraction at scale.</li>
+          <li>Integrated Azure OCR for document digitization and LangChain for intelligent text understanding, with Langfuse for LLM observability and tracing.</li>
+          <li>Built robust orchestration using Apache Airflow and event-driven processing via Kafka, backed by a Flask API layer and SQL for data persistence.</li>
+        </ul>
+        <div class="project-tags" style="margin-top:14px;">
+          <span class="tag">Azure OCR</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">Langfuse</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Airflow</span>
+          <span class="tag">Kafka</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
         </div>
-    </header>
+      </div>
+    </div>
 
-    <main>
-        <section class="section">
-            <h2 class="section-title">Objective</h2>
-            <p>Results-driven Data Engineer with 2 years of experience in designing scalable data pipelines, ETL workflows, and cloud-based solutions (AWS). Passionate about leveraging big data technologies to build high-performance solutions.</p>
-        </section>
+    <div class="exp-item">
+      <div class="exp-date">Jan 2023 – May 2025</div>
+      <div>
+        <div class="exp-title">Data Engineer</div>
+        <div class="exp-company">Paytm &nbsp;·&nbsp; Bangalore, Karnataka</div>
+        <ul class="exp-points">
+          <li>Developed and maintained production-ready ETL pipelines, optimized for performance and scalability to minimize server load.</li>
+          <li>Built data pipelines for the Onboarding Engine Team, enabling seamless merchant onboarding for products including SoundBox and Fastag.</li>
+          <li>Worked across distributed systems and cloud infrastructure to ensure reliable, high-throughput data flows across the platform.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-        <section class="section">
-            <h2 class="section-title">Education</h2>
-            <ul>
-                <li><strong>B.Tech in Electronics & Communication Engineering</strong><br>Babu Banarasi Das (NITM), Lucknow (2019 - 2023) | CGPA: 8.5/10</li>
-            </ul>
-        </section>
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="section-header">
+      <h2>Projects</h2>
+      <div class="section-line"></div>
+    </div>
 
-        <section class="section">
-            <h2 class="section-title">Skills</h2>
-            <ul>
-                <li><strong>Languages:</strong> Python, SQL, Data Structures & Algorithms</li>
-                <li><strong>Frameworks:</strong> Apache Spark, Kafka, Airflow, Pandas, Hadoop, Hive, Django</li>
-                <li><strong>Cloud Services:</strong> AWS (S3, Glue, Lambda, EC2, RDS)</li>
-                <li><strong>Databases:</strong> PostgreSQL, MySQL, Redis, MongoDB</li>
-                <li><strong>DevOps & Tools:</strong> Git, Docker, CI/CD, BitBucket</li>
-                <li><strong>Soft Skills:</strong> Problem Solving, Teamwork, Communication, Time Management</li>
-            </ul>
-        </section>
+    <div class="project-item">
+      <div class="project-title">YouTube Link to Audio &amp; Text Converter</div>
+      <div class="project-desc">A web application that converts YouTube links into downloadable audio files and transcribed text. Built using YouTube API integration, speech-to-text conversion, and audio generation — designed for students, professionals, and content creators.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Flask</span>
+        <span class="tag">YouTube API</span>
+        <span class="tag">Speech-to-Text</span>
+      </div>
+    </div>
 
-        <section class="section">
-            <h2 class="section-title">Experience</h2>
-            <h3>Software Engineer - Backend & Data Engineering</h3>
-            <p>Paytm | Bangalore, Karnataka (Jan 2023 - Present)</p>
-            <ul>
-                <li>Developed and optimized high-performance APIs handling millions of requests, improving efficiency by 60%.</li>
-                <li>Built scalable data pipelines using AWS Glue, Lambda, and S3, processing large volumes of transactional data.</li>
-                <li>Automated ETL workflows for merchant onboarding, enabling seamless data integration.</li>
-                <li>Enhanced API reliability and security, implementing Redis caching and JWT authentication.</li>
-                <li>Optimized PostgreSQL database queries, reducing execution time by 40%.</li>
-            </ul>
-        </section>
+    <div class="project-item">
+      <div class="project-title">URL Shortener Web Application</div>
+      <div class="project-desc">A Django-based URL shortening service with a robust backend for URL redirection and link management. Provides users with concise, shareable links generated from long URLs.</div>
+      <div class="project-tags">
+        <span class="tag">Django</span>
+        <span class="tag">Python</span>
+        <span class="tag">Backend</span>
+      </div>
+    </div>
 
-        <section class="section">
-            <h2 class="section-title">Projects</h2>
-            <ul>
-                <li><strong>Real-Time YouTube Audio & Text Converter:</strong>
-                <ul>
-                    <li>Developed a Flask-based web application to convert YouTube videos into audio files and transcriptions.</li>
-                    <li>Integrated YouTube API, Speech-to-Text (Whisper AI), and Flask to enhance accessibility.</li>
-                    <li>Deployed on AWS, enabling seamless content extraction for students and professionals.</li>
-                </ul>
-                </li>
-                <li><strong>Scalable URL Shortener (Django + Redis):</strong>
-                <ul>
-                    <li>Engineered a high-performance URL shortening service, handling thousands of requests per second.</li>
-                    <li>Utilized Django, PostgreSQL, and Redis caching, reducing database load by 70%.</li>
-                </ul>
-                </li>
-                <li><strong>Real-Time Stock Price Alert System (Kafka + Airflow):</strong>
-                <ul>
-                    <li>Designed a data streaming pipeline using Apache Kafka, Airflow, and PostgreSQL for stock price monitoring.</li>
-                    <li>Implemented event-driven alerts, notifying users when stock prices hit predefined thresholds.</li>
-                    <li>Improved real-time processing latency to under 2 seconds.</li>
-                </ul>
-                </li>
-                <li><strong>Random Password Generator:</strong>
-                    <ul>
-                        <li>Built a Streamlit web app for secure password generation.</li>
-                        <li>Features include customizable character types and adjustable length.<a href="https://random-password-generator-stream.streamlit.app/">(Try it)</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-    </main>
-</body>
-</html>
+    <div class="project-item">
+      <div class="project-title">Random Password Generator</div>
+      <div class="project-desc">A Python-based tool for generating strong, customizable passwords with variable length and character complexity settings. Includes password strength indicators and character set customization.</div>
+      <div class="project-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Security</span>
+        <span class="tag">CLI Tool</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section">
+    <div class="section-header">
+      <h2>Education</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2019 – 2023</div>
+      <div>
+        <div class="edu-degree">B.Tech — Electronics &amp; Communication Engineering</div>
+        <div class="edu-school">Babu Banarasi Das (NITM), Lucknow</div>
+        <div class="edu-score">CGPA: 8.5 / 10</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2017 – 2018</div>
+      <div>
+        <div class="edu-degree">Class XII — Science</div>
+        <div class="edu-school">CMS, Rajendra Nagar</div>
+        <div class="edu-score">75%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="section-header">
+      <h2>Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <p class="contact-intro">Open to data engineering roles, backend infrastructure work, and meaningful collaborations. Feel free to reach out directly.</p>
+      <div class="contact-links">
+        <div class="contact-row">
+          <span class="contact-key">Email</span>
+          <a href="/cdn-cgi/l/email-protection#5a313b282e33313f233b626d6c6a1a3d373b333674393537" class="contact-val"><span class="__cf_email__" data-cfemail="7b101a090f12101e021a434c4d4b3b1c161a121755181416">[email&#160;protected]</span></a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Phone</span>
+          <a href="tel:+919369435012" class="contact-val">+91 93694 35012</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">LinkedIn</span>
+          <a href="https://www.linkedin.com/in/kartikeya8760/" target="_blank" class="contact-val">linkedin.com/in/kartikeya8760</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-key">Location</span>
+          <span class="contact-val" style="cursor:default;border-color:transparent;">Bangalore, Karnataka</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-text">© 2024 Kartikeya Tiwari. All rights reserved.</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><scr
